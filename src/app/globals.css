@@ -1,0 +1,149 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Morandi blue + beige palette (muted, desaturated tones) */
+    --background: 38 12% 96%; /* very soft warm beige */
+    --foreground: 215 12% 14%; /* deep desaturated blue-gray for text */
+    --card: 38 12% 99%;
+    --card-foreground: 215 12% 14%;
+    --popover: 38 12% 99%;
+    --popover-foreground: 215 12% 14%;
+  --primary: 210 18% 38%; /* muted pastel blue (logo blue) */
+  --primary-foreground: 210 40% 98%;
+    --secondary: 38 14% 88%; /* soft beige neutral */
+    --secondary-foreground: 215 12% 14%;
+    --muted: 38 10% 92%;
+    --muted-foreground: 214 10% 50%;
+    /* Accent uses a muted beige from the logo palette */
+    --accent: 38 14% 88%; /* soft beige */
+    --accent-foreground: 215 12% 14%; /* dark blue-gray text for contrast */
+    --destructive: 4 60% 46%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 38 9% 90%;
+    --input: 38 9% 90%;
+    --ring: 210 18% 40%;
+    --chart-1: 210 18% 38%;
+    --chart-2: 200 12% 48%;
+    --chart-3: 38 12% 76%;
+    --chart-4: 45 20% 60%; /* subtle gold-beige tone */
+    --chart-5: 220 14% 58%;
+    --radius: 0.75rem;
+    --sidebar-background: 34 10% 98%;
+    --sidebar-foreground: 215 12% 14%;
+    --sidebar-primary: 210 18% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 34 8% 93%;
+    --sidebar-accent-foreground: 220 6% 12%;
+    --sidebar-border: 38 8% 92%;
+    --sidebar-ring: 210 18% 40%;
+  }
+  .dark {
+      /* Dark mode: blue + warm beige in deeper tones */
+      --background: 215 14% 8%;
+      --foreground: 38 12% 94%;
+      --card: 215 14% 10%;
+      --card-foreground: 38 12% 94%;
+      --popover: 215 14% 10%;
+      --popover-foreground: 38 12% 94%;
+      --primary: 210 22% 30%;
+      --primary-foreground: 38 12% 94%;
+      --secondary: 215 10% 12%;
+      --secondary-foreground: 38 12% 94%;
+      --muted: 215 10% 12%;
+      --muted-foreground: 214 12% 70%;
+  --accent: 38 12% 20%; /* darker beige in dark mode */
+  --accent-foreground: 38 12% 94%;
+      --destructive: 4 60% 45%;
+      --destructive-foreground: 38 12% 94%;
+      --border: 215 10% 14%;
+      --input: 215 10% 14%;
+      --ring: 210 18% 36%;
+      --chart-1: 210 20% 36%;
+      --chart-2: 200 12% 44%;
+      --chart-3: 38 12% 70%;
+      --chart-4: 45 20% 40%;
+      --chart-5: 220 14% 40%;
+      --sidebar-background: 215 10% 8%;
+      --sidebar-foreground: 38 12% 94%;
+      --sidebar-primary: 210 18% 36%;
+      --sidebar-primary-foreground: 0 0% 100%;
+      --sidebar-accent: 215 10% 10%;
+      --sidebar-accent-foreground: 38 12% 94%;
+      --sidebar-border: 215 10% 12%;
+      --sidebar-ring: 210 18% 36%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  /* Typography and base luxury touches */
+  :root {
+    /* Use the Google fonts preloaded in layout.tsx: Alegreya (serif) and Belleza (display) */
+    --font-headline: 'Alegreya', Georgia, serif;
+    --font-body: 'Belleza', Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.6;
+    color: hsl(var(--foreground));
+  }
+
+  /* Headings: elegant serif with subtle letter spacing */
+  h1, h2, h3, h4 {
+    font-family: var(--font-headline);
+    letter-spacing: 0.02em;
+    color: hsl(var(--foreground));
+    line-height: 1.15;
+    font-weight: 600;
+  }
+
+  h1 {
+    font-size: 2.25rem; /* 36px */
+  }
+
+  @media (min-width: 768px) {
+    h1 { font-size: 3.5rem; /* 56px */ }
+    h2 { font-size: 1.8rem; }
+  }
+
+  a {
+    color: hsl(var(--primary));
+    transition: color .18s ease, opacity .18s ease, transform .18s ease;
+  }
+
+  /* Luxury card baseline used by components that rely on card/bg variables */
+  .lux-card {
+    background: hsl(var(--card));
+    color: hsl(var(--card-foreground));
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(20,18,16,0.06);
+    border: 1px solid hsla(var(--border) / 0.6);
+  }
+
+  /* Scroll reveal helper */
+  .reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1);
+    will-change: opacity, transform;
+  }
+  .reveal.revealed {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Hover overlay for product cards */
+  .card-overlay {
+    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%);
+    backdrop-filter: blur(4px);
+  }
+}

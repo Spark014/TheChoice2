@@ -1,0 +1,76 @@
+{
+  "placeholderImages": [
+    {
+      "id": "1",
+      "description": "Elegant Diamond Solitaire",
+      "imageUrl": "https://images.unsplash.com/photo-1603561591411-07134e71a2a9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxkaWFtb25kJTIwcmluZ3xlbnwwfHx8fDE3NjI1MzA1MjN8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "diamond ring"
+    },
+    {
+      "id": "2",
+      "description": "Sapphire Teardrop Necklace",
+      "imageUrl": "https://images.unsplash.com/photo-1739194097821-a0fbea48a3f0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxzYXBwaGlyZSUyMG5lY2tsYWNlfGVufDB8fHx8MTc2MjQ1NTgwNnww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "sapphire necklace"
+    },
+    {
+      "id": "3",
+      "description": "Emerald Cut Engagement Ring",
+      "imageUrl": "https://images.unsplash.com/photo-1724937721070-941b8bdae4a0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxlbWVyYWxkJTIwcmluZ3xlbnwwfHx8fDE3NjI1MzAzMDZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "emerald ring"
+    },
+    {
+      "id": "4",
+      "description": "Gold Bangle Bracelet",
+      "imageUrl": "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxnb2xkJTIwYnJhY2VsZXR8ZW58MHx8fHwxNzYyNDI0ODg4fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gold bracelet"
+    },
+    {
+      "id": "5",
+      "description": "Woman wearing necklace",
+      "imageUrl": "https://images.unsplash.com/photo-1585960622850-ed33c41d6418?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxqZXdlbHJ5JTIwbW9kZWx8ZW58MHx8fHwxNzYyNTM2MzY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "jewelry model"
+    },
+    {
+      "id": "6",
+      "description": "Stack of gold rings",
+      "imageUrl": "https://images.unsplash.com/photo-1654521883301-070279dd0ae1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxnb2xkJTIwcmluZ3N8ZW58MHx8fHwxNzYyNDU4NjYwfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "gold rings"
+    },
+    {
+      "id": "7",
+      "description": "Ruby Stud Earrings",
+      "imageUrl": "https://images.unsplash.com/photo-1667013829910-0c08b562abd6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxydWJ5JTIwZWFycmluZ3N8ZW58MHx8fHwxNzYyNTM2MzY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "ruby earrings"
+    },
+    {
+      "id": "8",
+      "description": "Pearl Strand Necklace",
+      "imageUrl": "https://images.unsplash.com/photo-1640083239745-9bbd77a2097f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8cGVhcmwlMjBuZWNrbGFjZXxlbnwwfHx8fDE3NjI0OTk1Njl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "pearl necklace"
+    },
+    {
+      "id": "9",
+      "description": "Amethyst Pendant",
+      "imageUrl": "https://images.unsplash.com/photo-1645445197786-8e2e9f4d58d7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxhbWV0aHlzdCUyMHBlbmRhbnR8ZW58MHx8fHwxNzYyNTM2MzY0fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "amethyst pendant"
+    },
+    {
+      "id": "10",
+      "description": "Silver Hoop Earrings",
+      "imageUrl": "https://images.unsplash.com/photo-1758974504431-85dc632f8fc0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxzaWx2ZXIlMjBlYXJyaW5nc3xlbnwwfHx8fDE3NjI0Nzk5ODR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "silver earrings"
+    },
+    {
+      "id": "11",
+      "description": "Aquamarine Cocktail Ring",
+      "imageUrl": "https://images.unsplash.com/photo-1604409934062-1b7a86db9e44?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxhcXVhbWFyaW5lJTIwcmluZ3xlbnwwfHx8fDE3NjI1MzYzNjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "aquamarine ring"
+    },
+    {
+      "id": "12",
+      "description": "Men's Titanium Band",
+      "imageUrl": "https://images.unsplash.com/photo-1578632307646-44afb788f005?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxtZW5zJTIwcmluZ3xlbnwwfHx8fDE3NjI1MzYzNjR8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "mens ring"
+    }
+  ]
+}
