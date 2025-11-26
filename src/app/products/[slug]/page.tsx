@@ -7,6 +7,12 @@ import { Card } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Star } from 'lucide-react';
 
+export async function generateStaticParams() {
+  return PlaceHolderImages.map((product) => ({
+    slug: product.id,
+  }));
+}
+
 export default function ProductDetailPage({ params }: { params: { slug: string } }) {
   const product = PlaceHolderImages.find(p => p.id === params.slug);
 

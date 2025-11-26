@@ -99,8 +99,8 @@ export default function Home() {
 
       {/* AI Recommendation CTA */}
       <section className="bg-card py-16 md:py-24">
-        <div className="container grid md:grid-cols-2 gap-12 items-center">
-      <div className="relative aspect-square max-w-md mx-auto">
+        <div className="container flex flex-col items-center text-center max-w-2xl mx-auto">
+      <div className="relative aspect-square w-full max-w-md mx-auto mb-8">
          <Image
           src={ctaImage.imageUrl}
           alt={ctaImage.description}

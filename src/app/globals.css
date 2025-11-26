@@ -76,7 +76,7 @@
       --sidebar-ring: 210 18% 36%;
   }
 }
-
+ /* im gonna try something and see what happens  */
 @layer base {
   * {
     @apply border-border;
