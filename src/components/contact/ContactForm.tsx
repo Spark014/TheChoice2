@@ -48,56 +48,64 @@ export default function ContactForm() {
   }
 
   return (
-    <div className="max-w-2xl mx-auto">
-      <Card>
-        <CardHeader className="text-center">
-          <Mail className="mx-auto h-12 w-12 text-primary" />
-          <CardTitle className="text-3xl font-bold font-headline mt-4">Contact Us</CardTitle>
-          <CardDescription>Have a question or a special request? We'd love to hear from you.</CardDescription>
+    <div className="max-w-4xl mx-auto">
+      <Card className="border-none shadow-none bg-transparent">
+        <CardHeader className="text-center mb-8">
+          <Mail className="mx-auto h-10 w-10 text-primary mb-4" />
+          <CardTitle className="text-4xl font-medium font-headline text-[#3A3A3A]">Contact Us</CardTitle>
+          <CardDescription className="text-lg text-muted-foreground font-light mt-2">
+            Have a question or a special request? We'd love to hear from you.
+          </CardDescription>
         </CardHeader>
         <CardContent>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <FormField
-                control={form.control}
-                name="name"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Full Name</FormLabel>
-                    <FormControl>
-                      <Input placeholder="Your Name" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-              <FormField
-                control={form.control}
-                name="email"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Email Address</FormLabel>
-                    <FormControl>
-                      <Input placeholder="your.email@example.com" {...field} />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
+            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+              <div className="grid md:grid-cols-2 gap-8">
+                <FormField
+                  control={form.control}
+                  name="name"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-base font-headline text-foreground/80">Full Name</FormLabel>
+                      <FormControl>
+                        <Input placeholder="Your Name" {...field} className="rounded-none border-primary/20 focus:border-primary h-12 bg-white/50" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+                <FormField
+                  control={form.control}
+                  name="email"
+                  render={({ field }) => (
+                    <FormItem>
+                      <FormLabel className="text-base font-headline text-foreground/80">Email Address</FormLabel>
+                      <FormControl>
+                        <Input placeholder="your.email@example.com" {...field} className="rounded-none border-primary/20 focus:border-primary h-12 bg-white/50" />
+                      </FormControl>
+                      <FormMessage />
+                    </FormItem>
+                  )}
+                />
+              </div>
               <FormField
                 control={form.control}
                 name="message"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Message</FormLabel>
+                    <FormLabel className="text-base font-headline text-foreground/80">Message</FormLabel>
                     <FormControl>
-                      <Textarea placeholder="How can we help you today?" rows={6} {...field} />
+                      <Textarea placeholder="How can we help you today?" rows={6} {...field} className="rounded-none border-primary/20 focus:border-primary bg-white/50 resize-none" />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              <Button type="submit" className="w-full font-headline">Send Message</Button>
+              <div className="flex justify-center pt-4">
+                <Button type="submit" size="lg" className="w-full md:w-auto min-w-[200px] rounded-none px-10 py-6 text-lg bg-primary hover:bg-primary/90 text-primary-foreground font-headline transition-all duration-300">
+                  Send Message
+                </Button>
+              </div>
             </form>
           </Form>
         </CardContent>

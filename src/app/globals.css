@@ -4,86 +4,99 @@
 
 @layer base {
   :root {
-    /* Morandi blue + beige palette (muted, desaturated tones) */
-    --background: 38 12% 96%; /* very soft warm beige */
-    --foreground: 215 12% 14%; /* deep desaturated blue-gray for text */
-    --card: 38 12% 99%;
-    --card-foreground: 215 12% 14%;
-    --popover: 38 12% 99%;
-    --popover-foreground: 215 12% 14%;
-  --primary: 210 18% 38%; /* muted pastel blue (logo blue) */
-  --primary-foreground: 210 40% 98%;
-    --secondary: 38 14% 88%; /* soft beige neutral */
-    --secondary-foreground: 215 12% 14%;
-    --muted: 38 10% 92%;
-    --muted-foreground: 214 10% 50%;
-    /* Accent uses a muted beige from the logo palette */
-    --accent: 38 14% 88%; /* soft beige */
-    --accent-foreground: 215 12% 14%; /* dark blue-gray text for contrast */
-    --destructive: 4 60% 46%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 38 9% 90%;
-    --input: 38 9% 90%;
-    --ring: 210 18% 40%;
-    --chart-1: 210 18% 38%;
-    --chart-2: 200 12% 48%;
-    --chart-3: 38 12% 76%;
-    --chart-4: 45 20% 60%; /* subtle gold-beige tone */
-    --chart-5: 220 14% 58%;
-    --radius: 0.75rem;
-    --sidebar-background: 34 10% 98%;
-    --sidebar-foreground: 215 12% 14%;
-    --sidebar-primary: 210 18% 38%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 34 8% 93%;
-    --sidebar-accent-foreground: 220 6% 12%;
-    --sidebar-border: 38 8% 92%;
-    --sidebar-ring: 210 18% 40%;
+    /* Luxury Morandi Palette - Sophisticated, Muted, Warm */
+
+    /* Backgrounds: Soft, warm alabaster/beige tones */
+    --background: 35 20% 96%;
+    /* Warm Alabaster */
+    --foreground: 220 15% 20%;
+    /* Deep Gunmetal Grey (softer than black) */
+
+    --card: 0 0% 100%;
+    /* Pure White for crisp contrast */
+    --card-foreground: 220 15% 20%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 15% 20%;
+
+    /* Primary: Muted Slate Blue (Classic Morandi) */
+    --primary: 215 25% 40%;
+    --primary-foreground: 0 0% 98%;
+
+    /* Secondary: Warm Taupe/Bronze */
+    --secondary: 35 15% 85%;
+    --secondary-foreground: 220 15% 20%;
+
+    --muted: 35 15% 92%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 35 20% 90%;
+    --accent-foreground: 220 15% 20%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 35 10% 85%;
+    --input: 35 10% 85%;
+    --ring: 215 25% 40%;
+
+    --radius: 0.5rem;
+    /* More squared, refined corners */
+
+    --chart-1: 215 25% 40%;
+    --chart-2: 35 20% 50%;
+    --chart-3: 180 20% 40%;
+    --chart-4: 300 10% 40%;
+    --chart-5: 0 0% 40%;
+
+    --sidebar-background: 35 20% 96%;
+    --sidebar-foreground: 220 15% 20%;
+    --sidebar-primary: 215 25% 40%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 35 15% 90%;
+    --sidebar-accent-foreground: 220 15% 20%;
+    --sidebar-border: 35 10% 85%;
+    --sidebar-ring: 215 25% 40%;
   }
+
   .dark {
-      /* Dark mode: blue + warm beige in deeper tones */
-      --background: 215 14% 8%;
-      --foreground: 38 12% 94%;
-      --card: 215 14% 10%;
-      --card-foreground: 38 12% 94%;
-      --popover: 215 14% 10%;
-      --popover-foreground: 38 12% 94%;
-      --primary: 210 22% 30%;
-      --primary-foreground: 38 12% 94%;
-      --secondary: 215 10% 12%;
-      --secondary-foreground: 38 12% 94%;
-      --muted: 215 10% 12%;
-      --muted-foreground: 214 12% 70%;
-  --accent: 38 12% 20%; /* darker beige in dark mode */
-  --accent-foreground: 38 12% 94%;
-      --destructive: 4 60% 45%;
-      --destructive-foreground: 38 12% 94%;
-      --border: 215 10% 14%;
-      --input: 215 10% 14%;
-      --ring: 210 18% 36%;
-      --chart-1: 210 20% 36%;
-      --chart-2: 200 12% 44%;
-      --chart-3: 38 12% 70%;
-      --chart-4: 45 20% 40%;
-      --chart-5: 220 14% 40%;
-      --sidebar-background: 215 10% 8%;
-      --sidebar-foreground: 38 12% 94%;
-      --sidebar-primary: 210 18% 36%;
-      --sidebar-primary-foreground: 0 0% 100%;
-      --sidebar-accent: 215 10% 10%;
-      --sidebar-accent-foreground: 38 12% 94%;
-      --sidebar-border: 215 10% 12%;
-      --sidebar-ring: 210 18% 36%;
+    /* Dark Mode: Deep, rich charcoal and slate (not pure black) */
+    --background: 220 15% 12%;
+    --foreground: 35 20% 90%;
+
+    --card: 220 15% 15%;
+    --card-foreground: 35 20% 90%;
+
+    --popover: 220 15% 15%;
+    --popover-foreground: 35 20% 90%;
+
+    --primary: 215 30% 50%;
+    --primary-foreground: 0 0% 98%;
+
+    --secondary: 220 15% 20%;
+    --secondary-foreground: 35 20% 90%;
+
+    --muted: 220 15% 20%;
+    --muted-foreground: 220 10% 60%;
+
+    --accent: 220 15% 20%;
+    --accent-foreground: 35 20% 90%;
+
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 215 30% 50%;
   }
 }
- /* im gonna try something and see what happens  */
+
 @layer base {
   * {
     @apply border-border;
   }
-  /* Typography and base luxury touches */
+
   :root {
-    /* Use the Google fonts preloaded in layout.tsx: Alegreya (serif) and Belleza (display) */
     --font-headline: 'Alegreya', Georgia, serif;
     --font-body: 'Belleza', Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   }
@@ -93,57 +106,75 @@
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    line-height: 1.6;
-    color: hsl(var(--foreground));
+    line-height: 1.7;
   }
 
-  /* Headings: elegant serif with subtle letter spacing */
-  h1, h2, h3, h4 {
+  /* Typography - Elegant & Refined */
+  h1,
+  h2,
+  h3,
+  h4 {
     font-family: var(--font-headline);
-    letter-spacing: 0.02em;
+    letter-spacing: 0.01em;
     color: hsl(var(--foreground));
-    line-height: 1.15;
-    font-weight: 600;
+    line-height: 1.2;
+    font-weight: 500;
+    /* Lighter weight for elegance */
   }
 
   h1 {
-    font-size: 2.25rem; /* 36px */
+    font-size: 3rem;
   }
 
   @media (min-width: 768px) {
-    h1 { font-size: 3.5rem; /* 56px */ }
-    h2 { font-size: 1.8rem; }
+    h1 {
+      font-size: 4.5rem;
+    }
+
+    h2 {
+      font-size: 2.5rem;
+    }
   }
 
   a {
     color: hsl(var(--primary));
-    transition: color .18s ease, opacity .18s ease, transform .18s ease;
+    transition: all 0.3s ease;
+    text-decoration-thickness: 1px;
   }
 
-  /* Luxury card baseline used by components that rely on card/bg variables */
+  a:hover {
+    color: hsl(var(--foreground));
+    opacity: 0.8;
+  }
+
+  /* Luxury Card - Minimalist, Soft Shadow */
   .lux-card {
     background: hsl(var(--card));
-    color: hsl(var(--card-foreground));
+    border: 1px solid hsl(var(--border) / 0.5);
     border-radius: var(--radius);
-    box-shadow: 0 6px 18px rgba(20,18,16,0.06);
-    border: 1px solid hsla(var(--border) / 0.6);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    /* Very subtle shadow */
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
   }
 
-  /* Scroll reveal helper */
+  .lux-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.06);
+  }
+
   .reveal {
     opacity: 0;
-    transform: translateY(18px);
-    transition: opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1);
+    transform: translateY(30px);
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
     will-change: opacity, transform;
   }
+
   .reveal.revealed {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* Hover overlay for product cards */
   .card-overlay {
-    background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.45) 100%);
-    backdrop-filter: blur(4px);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
   }
 }

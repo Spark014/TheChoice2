@@ -1,5 +1,6 @@
 'use client';
 
+import { use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
@@ -45,8 +46,8 @@ function ProductFilters({ selected }: { selected?: string }) {
   );
 }
 
-export default function ProductsPage({ searchParams }: { searchParams?: { collection?: string } }) {
-  const collection = searchParams?.collection;
+export default function ProductsPage({ searchParams }: { searchParams: Promise<{ collection?: string }> }) {
+  const { collection } = use(searchParams);
 
   // map collections to simple keyword filters based on description/imageHint
   const collectionFilters: Record<string, string[]> = {
@@ -58,21 +59,21 @@ export default function ProductsPage({ searchParams }: { searchParams?: { collec
 
   const products = collection && collection !== 'all'
     ? PlaceHolderImages.filter(p => {
-        const keywords = collectionFilters[collection] || [];
-        const hay = `${p.description} ${p.imageHint}`.toLowerCase();
-        return keywords.some(k => hay.includes(k.toLowerCase()));
-      })
+      const keywords = collectionFilters[collection] || [];
+      const hay = `${p.description} ${p.imageHint}`.toLowerCase();
+      return keywords.some(k => hay.includes(k.toLowerCase()));
+    })
     : PlaceHolderImages;
   return (
-    <div className="container py-12">
+    <div className="w-full px-6 md:px-12 lg:px-24 py-12">
       <div className="text-center mb-12">
         <h1 className="text-4xl font-bold font-headline">Our Collection</h1>
         <p className="mt-2 text-lg text-foreground/80">Browse our curated selection of exquisite jewelry.</p>
       </div>
 
       <div className="grid lg:grid-cols-4 gap-8">
-        <ProductFilters />
-        
+        <ProductFilters selected={collection} />
+
         <main className="lg:col-span-3">
           <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {products.map((product) => (
@@ -86,7 +87,7 @@ export default function ProductsPage({ searchParams }: { searchParams?: { collec
                       height={400}
                       className="object-cover w-full h-48 sm:h-64 transition-transform duration-300"
                     />
-                  
+
                   </CardHeader>
                   <CardContent className="p-4">
                     <h3 className="font-headline text-lg font-semibold truncate">{product.description}</h3>

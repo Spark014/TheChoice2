@@ -1,7 +1,11 @@
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
+import path from 'path';
 
 const nextConfig: NextConfig = {
   /* config options here */
+
+  // Explicitly set the root to silence workspace detection warning
+  outputFileTracingRoot: path.join(__dirname),
 
   typescript: {
     ignoreBuildErrors: true,

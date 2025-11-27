@@ -31,14 +31,14 @@ const gemstones = [
 
 export default function GemstonesPage() {
   return (
-    <div className="container py-12 md:py-20">
+    <div className="w-full px-6 md:px-12 lg:px-24 py-12 md:py-20">
       <div className="max-w-4xl mx-auto">
         <div className="text-center">
-            <Gem className="mx-auto h-12 w-12 text-primary" />
-            <h1 className="text-4xl font-bold font-headline mt-4">A World of Gemstones</h1>
-            <p className="mt-4 text-lg text-foreground/80">
+          <Gem className="mx-auto h-12 w-12 text-primary" />
+          <h1 className="text-4xl font-bold font-headline mt-4">A World of Gemstones</h1>
+          <p className="mt-4 text-lg text-foreground/80">
             Explore the unique properties and stories behind our favorite gemstones. Learn how to care for your precious pieces to ensure they last a lifetime.
-            </p>
+          </p>
         </div>
 
         <Accordion type="single" collapsible className="w-full mt-12">
