@@ -17,7 +17,7 @@ export default function Header() {
       <div className="container flex h-20 items-center">
         <div className="mr-auto flex items-center md:mr-4">
           <Link href="/" className="mr-6 flex items-center space-x-3">
-            <Image src="/logo.png" alt="The Choice Gems" width={40} height={40} className="rounded-sm object-cover" />
+            <Image src="/brand-logo.png" alt="The Choice Gems" width={40} height={40} className="rounded-sm object-cover" />
             <span className="hidden sm:inline-block font-headline text-xl tracking-wide text-primary">
               The Choice Gems
             </span>
@@ -25,15 +25,15 @@ export default function Header() {
         </div>
 
         <nav className="hidden items-center space-x-6 text-sm font-medium tracking-wider md:flex">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="transition-colors hover:text-primary/90"
-              >
-                {link.label}
-              </Link>
-            ))}
+          {navLinks.map((link) => (
+            <Link
+              key={link.href}
+              href={link.href}
+              className="transition-colors hover:text-primary/90"
+            >
+              {link.label}
+            </Link>
+          ))}
         </nav>
 
         <div className="flex flex-1 items-center justify-end space-x-2">
@@ -47,7 +47,7 @@ export default function Header() {
               </SheetTrigger>
               <SheetContent side="left" className="pr-0">
                 <Link href="/" className="mr-6 flex items-center space-x-3 mb-6">
-                  <Image src="/logo.png" alt="The Choice Gems" width={36} height={36} className="rounded-sm object-cover" />
+                  <Image src="/brand-logo.png" alt="The Choice Gems" width={36} height={36} className="rounded-sm object-cover" />
                   <span className="font-headline text-lg">The Choice Gems</span>
                 </Link>
                 <nav className="flex flex-col space-y-4">

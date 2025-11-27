@@ -31,25 +31,28 @@ const gemstones = [
 
 export default function GemstonesPage() {
   return (
-    <div className="w-full px-6 md:px-12 lg:px-24 py-12 md:py-20">
-      <div className="max-w-4xl mx-auto">
-        <div className="text-center">
-          <Gem className="mx-auto h-12 w-12 text-primary" />
-          <h1 className="text-4xl font-bold font-headline mt-4">A World of Gemstones</h1>
-          <p className="mt-4 text-lg text-foreground/80">
+    <div className="w-full px-6 md:px-12 lg:px-24 py-12 md:py-24 bg-[#F5F5F0] min-h-screen">
+      <div className="max-w-5xl mx-auto">
+        <div className="text-center mb-16">
+          <Gem className="mx-auto h-10 w-10 text-primary mb-6" />
+          <h1 className="text-5xl md:text-6xl font-medium font-headline text-[#3A3A3A] mb-6">The Art of Gemstones</h1>
+          <div className="w-24 h-[1px] bg-primary/30 mx-auto mb-6" />
+          <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto leading-relaxed">
             Explore the unique properties and stories behind our favorite gemstones. Learn how to care for your precious pieces to ensure they last a lifetime.
           </p>
         </div>
 
-        <Accordion type="single" collapsible className="w-full mt-12">
+        <Accordion type="single" collapsible className="w-full space-y-4">
           {gemstones.map((gem) => (
-            <AccordionItem key={gem.name} value={gem.name} className="bg-card border-b-0 mb-4 rounded-lg px-6">
-              <AccordionTrigger className="text-xl font-headline hover:no-underline">{gem.name}</AccordionTrigger>
-              <AccordionContent className="text-base text-foreground/80 space-y-4">
-                <p>{gem.description}</p>
-                <div>
-                  <h4 className="font-semibold font-headline">Care Instructions:</h4>
-                  <p>{gem.care}</p>
+            <AccordionItem key={gem.name} value={gem.name} className="border-b border-primary/10 px-4">
+              <AccordionTrigger className="text-2xl font-headline font-medium text-foreground hover:text-primary transition-colors py-6 hover:no-underline">
+                {gem.name}
+              </AccordionTrigger>
+              <AccordionContent className="text-lg text-muted-foreground font-light leading-relaxed pb-8 pl-4">
+                <p className="mb-6">{gem.description}</p>
+                <div className="bg-white/50 p-6 border-l-2 border-primary/20">
+                  <h4 className="font-medium font-headline text-foreground mb-2 text-base uppercase tracking-widest">Care Instructions</h4>
+                  <p className="text-base italic">{gem.care}</p>
                 </div>
               </AccordionContent>
             </AccordionItem>

@@ -5,7 +5,9 @@ const nextConfig: NextConfig = {
   /* config options here */
 
   // Explicitly set the root to silence workspace detection warning
+  // Explicitly set the root to silence workspace detection warning
   outputFileTracingRoot: path.join(__dirname),
+  distDir: process.env.DIST_DIR || '.next',
 
   typescript: {
     ignoreBuildErrors: true,

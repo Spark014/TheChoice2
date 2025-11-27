@@ -4,7 +4,7 @@ import { use } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { Star } from 'lucide-react';
+import { Star, ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Label } from '@/components/ui/label';
@@ -78,50 +78,28 @@ export default function ProductsPage({ searchParams }: { searchParams: Promise<{
           <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-6">
             {products.map((product) => (
               <ScrollReveal key={product.id}>
-                <Card key={product.id} className="relative overflow-hidden group lux-card">
-                  <CardHeader className="p-0">
+                <Card className="group lux-card border-none shadow-none bg-transparent hover:bg-transparent overflow-visible pb-6">
+                  <CardHeader className="p-0 mb-6 relative overflow-hidden aspect-[3/4]">
                     <Image
                       src={product.imageUrl}
                       alt={product.description}
-                      width={400}
-                      height={400}
-                      className="object-cover w-full h-48 sm:h-64 transition-transform duration-300"
+                      fill
+                      className="object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                     />
-
+                    {/* Minimalist overlay on hover */}
+                    <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
                   </CardHeader>
-                  <CardContent className="p-4">
-                    <h3 className="font-headline text-lg font-semibold truncate">{product.description}</h3>
-                    <div className="flex items-center gap-2 mt-1">
-                      <div className="flex items-center text-accent">
-                        <Star className="w-4 h-4 fill-current" />
-                        <Star className="w-4 h-4 fill-current" />
-                        <Star className="w-4 h-4 fill-current" />
-                        <Star className="w-4 h-4 fill-current" />
-                        <Star className="w-4 h-4 fill-current" />
-                      </div>
-                      <span className="text-muted-foreground text-sm">4.5+</span>
-                    </div>
-                    <p className="text-primary font-semibold mt-2">
+                  <CardContent className="p-0 text-center">
+                    <h3 className="font-headline text-xl font-medium text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
+                      {product.description}
+                    </h3>
+                    <p className="text-muted-foreground font-light text-base mb-4">
                       ${((parseInt(product.id) * 123.45) % 3000 + 500).toFixed(2)}
                     </p>
-                    <p className="mt-3 text-sm text-muted-foreground">
-                      To learn more visit us at{' '}
-                      <a
-                        href="https://maps.app.goo.gl/44JnGJ4SNwka8Y7W8"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="underline hover:text-primary"
-                      >
-                        83 Chatham St, Colombo
-                      </a>
-                    </p>
                   </CardContent>
-                  <CardFooter className="p-4 pt-0 flex gap-3">
-                    <Button asChild className="flex-1 rounded-full px-6 py-3">
-                      <Link href={`/products/${product.id}`}>View Details</Link>
-                    </Button>
-                    <Button asChild variant="outline" className="flex-1 rounded-full px-6 py-3">
-                      <Link href="/contact">Inquire</Link>
+                  <CardFooter className="p-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-500 transform translate-y-2 group-hover:translate-y-0">
+                    <Button asChild variant="link" className="text-primary hover:text-primary/80 p-0 font-headline text-lg">
+                      <Link href={`/products/${product.id}`}>View Details <ArrowRight className="ml-2 h-4 w-4" /></Link>
                     </Button>
                   </CardFooter>
                 </Card>
