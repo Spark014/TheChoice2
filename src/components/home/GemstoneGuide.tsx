@@ -153,7 +153,7 @@ export default function GemstoneGuide() {
                                 className="w-full max-w-3xl"
                             >
                                 <h3 className="text-3xl font-headline font-light mb-12 text-white">{questions[step].question}</h3>
-                                <div className={`grid gap-6 ${questions[step].id === 'color' ? 'grid-cols-2 md:grid-cols-4' : 'grid-cols-1 md:grid-cols-4'}`}>
+                                <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
                                     {questions[step].options.map((option) => (
                                         <button
                                             key={option.label}
