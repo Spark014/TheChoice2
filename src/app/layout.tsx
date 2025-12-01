@@ -47,6 +47,8 @@ export const metadata: Metadata = {
 import SmoothScroll from '@/components/ui/SmoothScroll';
 import NewsletterPopup from '@/components/ui/NewsletterPopup';
 
+import { SpeedInsights } from "@vercel/speed-insights/next"
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -66,6 +68,7 @@ export default function RootLayout({
           <Footer />
           <Toaster />
           <NewsletterPopup />
+          <SpeedInsights />
         </SmoothScroll>
       </body>
     </html>
