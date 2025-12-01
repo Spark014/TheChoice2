@@ -1,17 +1,34 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
-import { ArrowRight, Globe, Award, MapPin } from 'lucide-react';
+import { ArrowRight, Globe, Award, MapPin, Eye } from 'lucide-react';
 import ScrollReveal from '@/components/ui/ScrollReveal';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { AnimatePresence, motion } from 'framer-motion';
+import QuickViewModal from '@/components/ui/QuickViewModal';
+import GemstoneGuide from '@/components/home/GemstoneGuide';
 
 const featuredProducts = PlaceHolderImages.slice(0, 4);
-const heroImage = PlaceHolderImages.find(p => p.id === '5');
+const heroImages = PlaceHolderImages.slice(0, 4); // Use first 4 images for hero slider
 const ctaImage = PlaceHolderImages.find(p => p.id === '6');
 
 export default function Home() {
-  if (!heroImage || !ctaImage) {
+  const [currentHeroIndex, setCurrentHeroIndex] = useState(0);
+  const [quickViewProduct, setQuickViewProduct] = useState<typeof PlaceHolderImages[0] | null>(null);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentHeroIndex((prev) => (prev + 1) % heroImages.length);
+    }, 6000); // Change image every 6 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  if (!ctaImage) {
     return null;
   }
 
@@ -19,18 +36,27 @@ export default function Home() {
     <div className="flex flex-col min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Hero Section - Full Width & Height with Blur Overlay */}
       <ScrollReveal>
-        <section className="relative w-full h-screen flex items-center justify-center overflow-hidden">
-          <div className="absolute inset-0 z-0">
-            <Image
-              src={heroImage.imageUrl}
-              alt={heroImage.description}
-              fill
-              className="object-cover"
-              priority
-            />
-            {/* Blur Overlay for Text Readability */}
-            <div className="absolute inset-0 bg-black/20 backdrop-blur-[15px]" />
-          </div>
+        <section className="relative w-full h-screen flex items-center justify-center overflow-hidden bg-black">
+          <AnimatePresence mode="popLayout">
+            <motion.div
+              key={currentHeroIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5 }}
+              className="absolute inset-0 z-0"
+            >
+              <Image
+                src={heroImages[currentHeroIndex].imageUrl}
+                alt={heroImages[currentHeroIndex].description}
+                fill
+                className="object-cover animate-ken-burns"
+                priority
+              />
+              {/* Blur Overlay for Text Readability */}
+              <div className="absolute inset-0 bg-black/30 backdrop-blur-[6px]" />
+            </motion.div>
+          </AnimatePresence>
 
           <div className="relative z-10 p-8 w-full max-w-7xl mx-auto text-center flex flex-col items-center">
             <span className="text-white/90 tracking-[0.3em] uppercase text-sm font-medium mb-6 animate-fade-in drop-shadow-md">
@@ -123,6 +149,18 @@ export default function Home() {
                     />
                     {/* Minimalist overlay on hover */}
                     <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-500" />
+
+                    {/* Quick View Button */}
+                    <div className="absolute bottom-4 left-0 right-0 flex justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 transform translate-y-4 group-hover:translate-y-0">
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        className="bg-white/90 hover:bg-white text-black font-headline tracking-wide shadow-md"
+                        onClick={() => setQuickViewProduct(product)}
+                      >
+                        <Eye className="w-4 h-4 mr-2" /> Quick View
+                      </Button>
+                    </div>
                   </CardHeader>
                   <CardContent className="p-0 text-center">
                     <h3 className="font-headline text-xl font-medium text-foreground mb-2 group-hover:text-primary transition-colors duration-300">
@@ -144,6 +182,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Interactive Gemstone Guide */}
+      <GemstoneGuide />
+
       {/* Gemstone Info CTA - Full Width */}
       <section className="py-32 bg-secondary/10 w-full">
         <div className="w-full px-6 md:px-12 text-center max-w-4xl mx-auto">
@@ -157,6 +198,11 @@ export default function Home() {
         </div>
       </section>
 
+      <QuickViewModal
+        product={quickViewProduct}
+        isOpen={!!quickViewProduct}
+        onClose={() => setQuickViewProduct(null)}
+      />
     </div>
   );
 }
