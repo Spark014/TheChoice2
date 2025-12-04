@@ -115,7 +115,8 @@ export default function WorldOfGems() {
         scene.background = new THREE.Color(0x1A1E26);
 
         const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
-        camera.position.set(0, 0, 5); // Start further out
+        const isMobile = width < 768;
+        camera.position.set(0, 0, isMobile ? 6.5 : 5); // Start further out, especially on mobile
         cameraRef.current = camera;
 
         const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
