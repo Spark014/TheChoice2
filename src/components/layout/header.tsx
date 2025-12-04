@@ -9,8 +9,10 @@ import { Input } from '@/components/ui/input';
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/sheet';
 
 const navLinks = [
+  { href: '/', label: 'Home' },
   { href: '/products', label: 'Products' },
   { href: '/gemstones', label: 'Gemstones' },
+  { href: '/journal', label: 'Journal' },
   { href: '/about', label: 'About Us' },
   { href: '/contact', label: 'Support' },
 ];

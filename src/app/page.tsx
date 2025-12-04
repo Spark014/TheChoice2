@@ -11,6 +11,8 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { AnimatePresence, motion } from 'framer-motion';
 import QuickViewModal from '@/components/ui/QuickViewModal';
 import GemstoneGuide from '@/components/home/GemstoneGuide';
+import WorldOfGems from '@/components/home/WorldOfGems';
+
 
 const featuredProducts = PlaceHolderImages.slice(0, 4);
 const heroImages = PlaceHolderImages.slice(0, 4); // Use first 4 images for hero slider
@@ -155,7 +157,7 @@ export default function Home() {
                       <Button
                         variant="secondary"
                         size="sm"
-                        className="bg-white/90 hover:bg-white text-black font-headline tracking-wide shadow-md"
+                        className="bg-white/90 hover:bg-white text-black font-headline tracking-wide shadow-md rounded-none"
                         onClick={() => setQuickViewProduct(product)}
                       >
                         <Eye className="w-4 h-4 mr-2" /> Quick View
@@ -181,6 +183,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+
+
+      {/* Interactive 3D Globe Section */}
+      <WorldOfGems />
 
       {/* Interactive Gemstone Guide */}
       <GemstoneGuide />
