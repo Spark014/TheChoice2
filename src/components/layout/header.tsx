@@ -14,7 +14,7 @@ const navLinks = [
   { href: '/gemstones', label: 'Gemstones' },
   { href: '/journal', label: 'Journal' },
   { href: '/about', label: 'About Us' },
-  { href: '/contact', label: 'Support' },
+  { href: '/contact', label: 'Connect' },
 ];
 
 export default function Header() {
