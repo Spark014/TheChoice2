@@ -102,6 +102,8 @@ export default function WorldOfGems() {
     const controlsRef = useRef<OrbitControls | null>(null);
     const cameraRef = useRef<THREE.PerspectiveCamera | null>(null);
 
+    const [isInteracting, setIsInteracting] = useState(false);
+
     useEffect(() => {
         const container = containerRef.current;
         if (!container) return;
@@ -141,7 +143,7 @@ export default function WorldOfGems() {
         controls.enableDamping = true;
         controls.dampingFactor = 0.05;
         controls.enablePan = false;
-        controls.enableZoom = true;
+        controls.enableZoom = !isMobile; // Disable zoom on mobile for a cleaner experience
         controls.minDistance = 2.5;
         controls.maxDistance = 8;
         controls.autoRotate = true;
@@ -281,20 +283,10 @@ export default function WorldOfGems() {
 
         // Use Pointer Events for unified touch/mouse handling
         const canvas = renderer.domElement;
+        canvas.style.touchAction = 'none'; // CSS touch-action handles scroll blocking efficiently
         canvas.addEventListener("pointerdown", handlePointerDown);
         canvas.addEventListener("pointermove", handlePointerMove);
         canvas.addEventListener("pointerup", handlePointerUp);
-
-        // === Prevent Page Scroll/Zoom on Interaction ===
-        // We still need this for some mobile browsers to prevent scrolling while dragging
-        const preventDefault = (e: Event) => {
-            e.preventDefault();
-        };
-
-        // Force non-passive listeners to block browser defaults (scroll/zoom)
-        canvas.addEventListener("wheel", preventDefault, { passive: false });
-        canvas.addEventListener("touchstart", preventDefault, { passive: false });
-        canvas.addEventListener("touchmove", preventDefault, { passive: false });
 
         // === Resize ===
         const handleResize = () => {
@@ -333,10 +325,6 @@ export default function WorldOfGems() {
             canvas.removeEventListener("pointermove", handlePointerMove);
             canvas.removeEventListener("pointerup", handlePointerUp);
 
-            canvas.removeEventListener("wheel", preventDefault);
-            canvas.removeEventListener("touchstart", preventDefault);
-            canvas.removeEventListener("touchmove", preventDefault);
-
             window.removeEventListener("resize", handleResize);
             controls.dispose();
             globeGeometry.dispose();
@@ -349,7 +337,7 @@ export default function WorldOfGems() {
     }, []);
 
     return (
-        <section className="relative w-full min-h-screen bg-[#1A1E26] flex flex-col items-center pt-24 pb-12 overflow-hidden">
+        <section className="relative w-full min-h-[600px] md:min-h-screen bg-[#1A1E26] flex flex-col items-center pt-24 pb-12 overflow-hidden">
 
             {/* Top Text Section */}
             <div className="relative z-10 text-center px-6 max-w-4xl mx-auto mb-8 pointer-events-none">
@@ -360,20 +348,50 @@ export default function WorldOfGems() {
                     The World of <span className="italic text-primary">Gems</span>
                 </h2>
                 <p className="text-xl text-white/70 font-light leading-relaxed max-w-2xl mx-auto drop-shadow-lg">
-                    Explore our ethical mining locations across the globe.
+                    Explore ethical mining locations across the globe.
                 </p>
             </div>
 
             {/* 3D Globe Container */}
-            <div className="relative w-full flex-grow min-h-[600px] flex items-center justify-center">
+            <div className="relative w-full flex-grow min-h-[400px] md:min-h-[600px] flex items-center justify-center">
                 <div
                     ref={containerRef}
-                    className="absolute inset-0 z-0 cursor-grab touch-none"
+                    className={`absolute inset-0 z-0 cursor-grab touch-none transition-opacity duration-500 ${isInteracting ? 'opacity-100 pointer-events-auto' : 'opacity-80 pointer-events-none'}`}
                 />
 
-                {/* Interaction Hint */}
+                {/* Interaction Overlay (Tap to Explore) */}
+                {!isInteracting && (
+                    <div className="absolute inset-0 z-10 flex items-center justify-center bg-black/10 backdrop-blur-[1px]">
+                        <Button
+                            onClick={() => setIsInteracting(true)}
+                            className="bg-white/10 backdrop-blur-md border border-white/20 text-white hover:bg-white/20 px-8 py-6 rounded-full font-headline text-lg tracking-wide transition-all hover:scale-105"
+                        >
+                            <Hand className="w-5 h-5 mr-3" /> Tap to Explore
+                        </Button>
+                    </div>
+                )}
+
+                {/* Exit Interaction Button */}
+                {isInteracting && (
+                    <div className="absolute top-4 right-4 z-20">
+                        <Button
+                            onClick={() => {
+                                setIsInteracting(false);
+                                setSelectedMine(null);
+                                if (controlsRef.current) controlsRef.current.autoRotate = true;
+                            }}
+                            variant="ghost"
+                            size="sm"
+                            className="text-white/70 hover:text-white hover:bg-white/10"
+                        >
+                            <X className="w-5 h-5 mr-2" /> Stop Exploring
+                        </Button>
+                    </div>
+                )}
+
+                {/* Interaction Hint (Only when interacting) */}
                 <AnimatePresence>
-                    {showHint && (
+                    {showHint && isInteracting && (
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
                             animate={{ opacity: 1, y: 0 }}
@@ -387,57 +405,54 @@ export default function WorldOfGems() {
                 </AnimatePresence>
 
                 {/* Popup for selected mine */}
-                {/* Popup for selected mine */}
                 <AnimatePresence>
                     {selectedMine && (
                         <motion.div
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             exit={{ opacity: 0 }}
-                            className="absolute inset-0 z-50 flex items-center justify-center px-4 bg-black/40 backdrop-blur-[2px]"
+                            className="absolute inset-0 z-50 flex items-end md:items-center justify-center px-0 md:px-4 bg-black/40 backdrop-blur-[2px]"
                             onClick={() => setSelectedMine(null)}
                         >
                             <motion.div
-                                initial={{ scale: 0.9, y: 20 }}
-                                animate={{ scale: 1, y: 0 }}
-                                exit={{ scale: 0.9, y: 20 }}
+                                initial={{ y: "100%" }}
+                                animate={{ y: 0 }}
+                                exit={{ y: "100%" }}
                                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                                className="w-full max-w-md"
+                                className="w-full md:max-w-md bg-[#F5F5F0] rounded-t-2xl md:rounded-sm overflow-hidden shadow-2xl"
                                 onClick={(e) => e.stopPropagation()}
                             >
-                                <Card className="bg-[#F5F5F0] border-none shadow-2xl overflow-hidden rounded-sm">
-                                    <div className="relative h-64 w-full">
-                                        <img
-                                            src={selectedMine.imageUrl}
-                                            alt={selectedMine.name}
-                                            className="object-cover w-full h-full"
-                                        />
-                                        <button
-                                            onClick={() => setSelectedMine(null)}
-                                            className="absolute top-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full text-black transition-all shadow-md hover:scale-105"
-                                        >
-                                            <X className="w-4 h-4" />
-                                        </button>
-                                    </div>
-                                    <CardContent className="p-8 text-center">
-                                        <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-3 block">
-                                            Mining Location
-                                        </span>
-                                        <h3 className="text-3xl font-headline font-medium text-[#1A1E26] mb-4 leading-tight">
-                                            {selectedMine.name}
-                                        </h3>
-                                        <div className="w-12 h-[1px] bg-primary/30 mx-auto mb-6" />
-                                        <p className="text-muted-foreground font-light leading-relaxed mb-8 text-base">
-                                            {selectedMine.description}
-                                        </p>
-                                        <Button
-                                            onClick={() => setSelectedMine(null)}
-                                            className="w-full bg-[#1A1E26] text-white hover:bg-[#1A1E26]/90 rounded-none py-6 text-lg font-headline tracking-wide transition-all duration-300"
-                                        >
-                                            Close Details
-                                        </Button>
-                                    </CardContent>
-                                </Card>
+                                <div className="relative h-48 md:h-64 w-full">
+                                    <img
+                                        src={selectedMine.imageUrl}
+                                        alt={selectedMine.name}
+                                        className="object-cover w-full h-full"
+                                    />
+                                    <button
+                                        onClick={() => setSelectedMine(null)}
+                                        className="absolute top-4 right-4 bg-white/90 hover:bg-white p-2 rounded-full text-black transition-all shadow-md hover:scale-105"
+                                    >
+                                        <X className="w-4 h-4" />
+                                    </button>
+                                </div>
+                                <div className="p-6 md:p-8 text-center">
+                                    <span className="text-primary text-xs font-bold tracking-[0.2em] uppercase mb-3 block">
+                                        Mining Location
+                                    </span>
+                                    <h3 className="text-2xl md:text-3xl font-headline font-medium text-[#1A1E26] mb-4 leading-tight">
+                                        {selectedMine.name}
+                                    </h3>
+                                    <div className="w-12 h-[1px] bg-primary/30 mx-auto mb-6" />
+                                    <p className="text-muted-foreground font-light leading-relaxed mb-8 text-sm md:text-base">
+                                        {selectedMine.description}
+                                    </p>
+                                    <Button
+                                        onClick={() => setSelectedMine(null)}
+                                        className="w-full bg-[#1A1E26] text-white hover:bg-[#1A1E26]/90 rounded-none py-4 md:py-6 text-lg font-headline tracking-wide transition-all duration-300"
+                                    >
+                                        Close Details
+                                    </Button>
+                                </div>
                             </motion.div>
                         </motion.div>
                     )}

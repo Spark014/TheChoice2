@@ -64,10 +64,10 @@ export default function Home() {
             <span className="text-white/90 tracking-[0.3em] uppercase text-sm font-medium mb-6 animate-fade-in drop-shadow-md">
               Est. 1989
             </span>
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-headline font-medium tracking-tight text-white mb-8 drop-shadow-lg">
+            <h1 className="text-4xl md:text-7xl lg:text-8xl font-headline font-medium tracking-tight text-white mb-6 md:mb-8 drop-shadow-lg">
               Timeless <span className="italic text-white">Elegance</span>
             </h1>
-            <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light mb-12 drop-shadow-md">
+            <p className="text-lg md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed font-light mb-8 md:mb-12 drop-shadow-md px-4">
               Curated collections that celebrate the art of understated luxury. Discover pieces that tell your unique story.
             </p>
             <div className="flex flex-col sm:flex-row gap-6">
@@ -83,7 +83,7 @@ export default function Home() {
       </ScrollReveal>
 
       {/* Global Presence & Experience Section */}
-      <section className="py-24 md:py-32 bg-[#F5F5F0] w-full">
+      <section className="py-16 md:py-32 bg-[#F5F5F0] w-full">
         <div className="w-full px-6 md:px-10 lg:px-50">
           <div className="grid md:grid-cols-2 gap-5 items-center max-w-7xl mx-auto">
             <div className="space-y-8">
@@ -128,7 +128,7 @@ export default function Home() {
       </section>
 
       {/* Featured Products Section - Full Width */}
-      <section className="py-24 md:py-32 bg-background w-full">
+      <section className="py-16 md:py-32 bg-background w-full">
         <div className="w-full px-6 md:px-12 lg:px-24">
           <div className="flex flex-col items-center mb-20 text-center">
             <h2 className="text-4xl font-headline font-medium text-foreground mb-4">Curated Selections</h2>
@@ -193,7 +193,7 @@ export default function Home() {
       <GemstoneGuide />
 
       {/* Gemstone Info CTA - Full Width */}
-      <section className="py-32 bg-secondary/10 w-full">
+      <section className="py-20 md:py-32 bg-secondary/10 w-full">
         <div className="w-full px-6 md:px-12 text-center max-w-4xl mx-auto">
           <h2 className="text-4xl font-headline font-medium mb-8">The Art of Gemstones</h2>
           <p className="text-muted-foreground text-xl mb-12 font-light leading-relaxed">

@@ -81,24 +81,41 @@ export default function Header() {
                 <span className="sr-only">Toggle Menu</span>
               </Button>
             </SheetTrigger>
-            <SheetContent side="left" className="pr-0">
+            <SheetContent side="left" className="w-full sm:max-w-md pr-0 bg-background/95 backdrop-blur-xl border-r border-border/40">
               <SheetTitle className="sr-only">Navigation Menu</SheetTitle>
-              <Link href="/" className="mr-6 flex items-center space-x-3 mb-6" onClick={() => setIsOpen(false)}>
-                <Image src="/brand-logo.png" alt="The Choice Gems" width={36} height={36} className="rounded-sm object-cover" />
-                <span className="font-headline text-lg">The Choice Gems</span>
-              </Link>
-              <nav className="flex flex-col space-y-4">
-                {navLinks.map((link) => (
-                  <Link
-                    key={link.href}
-                    href={link.href}
-                    className="text-lg transition-colors hover:text-primary"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {link.label}
+              <div className="flex flex-col h-full">
+                <div className="flex items-center justify-between mr-6 mb-12">
+                  <Link href="/" className="flex items-center space-x-3" onClick={() => setIsOpen(false)}>
+                    <Image src="/brand-logo.png" alt="The Choice Gems" width={42} height={42} className="rounded-sm object-cover" />
+                    <span className="font-headline text-xl tracking-tight">The Choice Gems</span>
                   </Link>
-                ))}
-              </nav>
+                </div>
+
+                <nav className="flex flex-col space-y-6 px-2">
+                  {navLinks.map((link, index) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      className="text-3xl font-headline font-light text-foreground/80 hover:text-primary transition-colors duration-300 animate-in slide-in-from-left-4 fade-in fill-mode-forwards"
+                      style={{ animationDelay: `${index * 100}ms` }}
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </nav>
+
+                <div className="mt-auto mb-12 mr-6 animate-in slide-in-from-bottom-8 fade-in duration-700 delay-500 fill-mode-forwards opacity-0">
+                  <Button asChild size="lg" className="w-full font-headline text-lg py-6 rounded-sm bg-primary text-primary-foreground hover:bg-primary/90 shadow-lg">
+                    <Link href="/contact" onClick={() => setIsOpen(false)}>
+                      Book Consultation
+                    </Link>
+                  </Button>
+                  <p className="text-center mt-6 text-muted-foreground text-sm font-light">
+                    Est. 1989 • Global Excellence
+                  </p>
+                </div>
+              </div>
             </SheetContent>
           </Sheet>
         </div>
