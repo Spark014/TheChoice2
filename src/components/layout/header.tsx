@@ -12,6 +12,7 @@ const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/products', label: 'Products' },
   { href: '/gemstones', label: 'Gemstones' },
+  { href: '/gallery', label: 'Gallery' },
   { href: '/journal', label: 'Journal' },
   { href: '/about', label: 'About Us' },
   { href: '/contact', label: 'Connect' },
