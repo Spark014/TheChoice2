@@ -3,7 +3,7 @@
 import { useState, useMemo, useEffect, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Image from 'next/image';
-import { X, ChevronLeft, ChevronRight, Maximize2, Tag, Filter } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Maximize2, Filter } from 'lucide-react';
 import { galleryItems } from '@/lib/gallery-data';
 import { Button } from '@/components/ui/button';
 
@@ -124,11 +124,6 @@ export default function ExhibitionGallery() {
                     loading="lazy"
                   />
 
-                  {/* Permanent Item Badge */}
-                  <span className="absolute top-3 left-3 bg-black/70 backdrop-blur-md text-white text-[11px] font-mono font-semibold px-2.5 py-1 rounded-md border border-white/20 z-10">
-                    #{item.id < 10 ? `0${item.id}` : item.id}
-                  </span>
-
                   {/* Default Bottom Bar (Visible when NOT hovering) */}
                   <div className="absolute bottom-0 left-0 w-full p-3.5 bg-gradient-to-t from-black/85 via-black/50 to-transparent text-white group-hover:opacity-0 transition-opacity duration-300">
                     <h3 className="text-sm font-headline font-medium tracking-wide truncate">{item.title}</h3>
@@ -152,9 +147,6 @@ export default function ExhibitionGallery() {
                       <p className="text-xs sm:text-sm text-gray-200 font-light leading-relaxed line-clamp-4">
                         {item.description}
                       </p>
-                      <span className="inline-flex items-center gap-1 text-[10px] text-primary-foreground/90 mt-3 font-mono">
-                        <Tag className="w-3 h-3" /> Photo #{item.id}
-                      </span>
                     </div>
                   </div>
                 </div>
@@ -237,7 +229,6 @@ export default function ExhibitionGallery() {
                 </div>
 
                 <div className="pt-4 border-t border-border/40 text-xs text-muted-foreground font-mono flex justify-between">
-                  <span>Photo #{activeItem.id}</span>
                   <span>{selectedItemIndex! + 1} of {filteredItems.length}</span>
                 </div>
               </div>
