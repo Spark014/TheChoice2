@@ -138,14 +138,6 @@ export const galleryItems: GalleryItem[] = [
   },
   {
     id: 17,
-    title: 'Founder at Golden Monument',
-    category: 'Global Delegations',
-    filename: 'WhatsApp Image 2026-08-11 at 21.01.51 (3).jpeg',
-    image: '/WhatsApp Image 2026-08-11 at 21.01.51 (3).jpeg',
-    description: 'Senior founder seated in front of a landmark sculpture during an international expo trip.',
-  },
-  {
-    id: 18,
     title: 'Gem Vault & Trading Office',
     category: 'Heritage & Founders',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.51.jpeg',
@@ -153,7 +145,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'Top-down view of our central office and gem vault where stones are sorted and authenticated.',
   },
   {
-    id: 19,
+    id: 18,
     title: 'Trade Mission Departure',
     category: 'Global Delegations',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.52 (1).jpeg',
@@ -161,7 +153,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'Director prepared with travel gear for an overseas gem trade exhibition.',
   },
   {
-    id: 20,
+    id: 19,
     title: 'China Kunming International Stone Expo',
     category: 'Exhibitions & Shows',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.52 (2).jpeg',
@@ -169,7 +161,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'The Choice delegation team at China Kunming International Stone Expo booth 1562.',
   },
   {
-    id: 21,
+    id: 20,
     title: 'Commonwealth Business Forum (London)',
     category: 'Global Delegations',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.52 (3).jpeg',
@@ -177,15 +169,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'Senior founder attending the Commonwealth Business Forum at Guildhall Art Gallery in London.',
   },
   {
-    id: 22,
-    title: 'China Trade Tour Landmark Visit',
-    category: 'Global Delegations',
-    filename: 'WhatsApp Image 2026-08-11 at 21.01.52.jpeg',
-    image: '/WhatsApp Image 2026-08-11 at 21.01.52.jpeg',
-    description: 'Senior founder standing at architectural site during a Chinese gemstone trade mission.',
-  },
-  {
-    id: 23,
+    id: 21,
     title: 'International Business Dinner',
     category: 'Global Delegations',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.53 (1).jpeg',
@@ -193,7 +177,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'Founders sharing a celebratory meal with global gemstone trade partners.',
   },
   {
-    id: 24,
+    id: 22,
     title: 'Senior Founder at Trade Counter',
     category: 'Heritage & Founders',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.53 (2).jpeg',
@@ -201,7 +185,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'Senior founder and director managing gemstone inspections at exhibition booth.',
   },
   {
-    id: 25,
+    id: 23,
     title: 'Flight to Global Trade Expo',
     category: 'Global Delegations',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.53 (3).jpeg',
@@ -209,7 +193,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'Directors en route to an international gemstone exhibition in Asia.',
   },
   {
-    id: 26,
+    id: 24,
     title: 'London Guildhall Trade Delegation',
     category: 'Global Delegations',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.53.jpeg',
@@ -217,7 +201,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'Senior founder representing Ceylon gem trade at Guildhall, London.',
   },
   {
-    id: 27,
+    id: 25,
     title: 'Interactive Gemstone Demonstration',
     category: 'Exhibitions & Shows',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.54 (1).jpeg',
@@ -225,7 +209,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'Demonstrating sapphire light reflection and cut quality to trade visitors.',
   },
   {
-    id: 28,
+    id: 26,
     title: 'Trade Partner Gala Dinner',
     category: 'Global Delegations',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.54 (2).jpeg',
@@ -233,7 +217,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'The Choice executive board dining with international gemstone industry leaders.',
   },
   {
-    id: 29,
+    id: 27,
     title: 'International Travel Transit',
     category: 'Global Delegations',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.54 (3).jpeg',
@@ -241,7 +225,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'Senior founder traveling between trade shows with secure gemstone transport cases.',
   },
   {
-    id: 30,
+    id: 28,
     title: 'Sri Lanka Sapphire Capital Showcase',
     category: 'Exhibitions & Shows',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.54.jpeg',
@@ -249,7 +233,7 @@ export const galleryItems: GalleryItem[] = [
     description: 'Senior founder promoting "Sri Lanka - The Sapphire Capital of the World" in China.',
   },
   {
-    id: 31,
+    id: 29,
     title: 'Executive Board at Illuminated Display',
     category: 'Heritage & Founders',
     filename: 'WhatsApp Image 2026-08-11 at 21.01.55.jpeg',
